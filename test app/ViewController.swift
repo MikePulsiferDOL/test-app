@@ -13,7 +13,7 @@ class ViewController: UIViewController, GovDataRequestProtocol {
    
     var firstRequest: GovDataRequest = GovDataRequest(APIKey: "", APIHost: "http://data.fcc.gov", APIURL: "/lpfmapi/rest/v1/lat/36")
     //var firstRequest: GovDataRequest = GovDataRequest(APIKey: "", APIHost: "https://itunes.apple.com", APIURL: "/search")
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,8 +21,10 @@ class ViewController: UIViewController, GovDataRequestProtocol {
         self.firstRequest.delegate = self
         //var arguments = Dictionary<String, String>()
         var arguments = ["format": "json", "secondchannel": "true"]
+        //var arguments = ["term": "Angry Birds", "media": "software"]
         var timeOut = 60.0
         firstRequest.callAPIMethod(method: "long/-119", arguments: arguments, timeOut: timeOut)
+        //firstRequest.callAPIMethod(method: "", arguments: arguments, timeOut: timeOut)
     }
 
     override func didReceiveMemoryWarning() {
